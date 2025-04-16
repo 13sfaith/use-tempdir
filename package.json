@@ -1,8 +1,22 @@
 {
   "name": "use-tmpdir",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create a temporary directory, run your code, and clean it up automatically.",
-  "main": "index.js",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "index.d.ts",
+    "README.md"
+  ],
+  "types": "index.d.ts",
   "keywords": [
     "tmp",
     "temporary",
@@ -13,6 +27,9 @@
     "tempdir",
     "sandbox"
   ],
+  "scripts": {
+    "test": "node test/cjs-test.cjs & node test/esm-test.mjs"
+  },
   "author": "Spencer Faith",
   "license": "MIT",
   "repository": {
