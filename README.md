@@ -8,19 +8,31 @@ Create a temporary directory, run some code, and clean it up automatically.
 npm install use-tmpdir
 ```
 
+`use-tmpdir` is a hyprid module supporting both `import` and `require`.
+
+```js
+// esm
+import { useTmpDir } from 'use-tmpdir'
+// cjs
+const { useTmpDir } = require('use-tmpdir')
+```
+
 ## Usage
 
 ```js
-const useTmpDir = require('use-tmpdir');
-const fs = require('fs');
-const path = require('path');
+import { useTmpDir } from 'use-tmpdir';
+import path from 'path';
+import fs from 'fs';
 
 useTmpDir(async (dir) => {
-  const file = path.join(dir, 'example.txt');
-  fs.writeFileSync(file, 'Hello, temp!');
-  console.log('File written at:', file);
+  // temporary file `dir` is made
+  const file = path.join(dir, 'hello.txt');
+  fs.writeFileSync(file, 'Hello world!');
+  console.log('Wrote to:', file);
+}).then(() => {
+  // temporary file `dir` is cleanly removed
+  console.log('Temp dir cleaned up.');
 });
-// Temporary directory is cleaned up afterward
 ```
 
 ## API
