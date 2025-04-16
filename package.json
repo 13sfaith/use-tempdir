@@ -1,6 +1,6 @@
 {
   "name": "use-tmpdir",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Create a temporary directory, run your code, and clean it up automatically.",
   "main": "index.js",
   "keywords": [
@@ -17,7 +17,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/13sfaith/use-tmpdir"
+    "url": "git+https://github.com/13sfaith/use-tmpdir.git"
   },
   "dependencies": {
     "rimraf": "^5.0.0"
